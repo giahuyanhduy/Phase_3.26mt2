@@ -4,7 +4,7 @@
 ZIP_URL="https://github.com/giahuyanhduy/phase/raw/main/Phase_3.zip"
 
 # Đường dẫn tới thư mục đích
-DEST_DIR="/home/Phase_3"
+DEST_DIR="/home/"
 
 # Kiểm tra và cài đặt unzip nếu chưa được cài đặt
 if ! command -v unzip &> /dev/null
