@@ -1,31 +1,23 @@
 #!/bin/bash
 
-# Đường dẫn tới tệp zip trên GitHub
-ZIP_URL="https://github.com/giahuyanhduy/phase/raw/main/Phase_3.zip"
+# Tải tệp zip từ GitHub
+curl -L -o /tmp/Phase_3.zip https://github.com/giahuyanhduy/phase/blob/main/Phase_3.zip?raw=true
 
-# Đường dẫn tới thư mục đích
-DEST_DIR="/home/Phase_3"
-
-# Kiểm tra và cài đặt unzip nếu chưa được cài đặt
-if ! command -v unzip &> /dev/null
-then
-    echo "Unzip chưa được cài đặt. Đang cài đặt unzip..."
-    apt-get update
-    apt-get install unzip -y
+# Kiểm tra xem thư mục /home/giang có tồn tại hay không
+if [ -d "/home/giang" ]; then
+    # Nếu tồn tại, giải nén vào /home/giang
+    unzip -o /tmp/Phase_3.zip -d /home/giang/
+    # Truy cập vào thư mục Phase_3
+    cd /home/giang/Phase_3 || exit
+else
+    # Nếu không tồn tại, giải nén ra /home
+    unzip -o /tmp/Phase_3.zip -d /home/
+    # Truy cập vào thư mục Phase_3
+    cd /home/Phase_3 || exit
 fi
 
-# Tạo thư mục /home/Phase_3 nếu chưa tồn tại
-if [ ! -d "$DEST_DIR" ]; then
-    echo "Tạo thư mục $DEST_DIR..."
-    mkdir -p "$DEST_DIR"
-fi
+# Chạy lệnh npm install
+npm install
 
-# Tải xuống Phase_3.zip từ GitHub
-echo "Đang tải xuống Phase_3.zip từ GitHub..."
-wget -O /tmp/Phase_3.zip "$ZIP_URL"
-
-# Giải nén Phase_3.zip vào /home/Phase_3
-echo "Giải nén Phase_3.zip vào $DEST_DIR..."
-unzip -o /tmp/Phase_3.zip -d "$DEST_DIR"
-
-echo "Hoàn thành."
+# Xóa tệp zip đã tải
+rm /tmp/Phase_3.zip
