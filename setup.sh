@@ -17,7 +17,7 @@ else
 fi
 
 # Chạy lệnh npm install
-npm install
+#npm install
 
 # Xóa tệp zip đã tải
 rm /tmp/Phase_3.zip
