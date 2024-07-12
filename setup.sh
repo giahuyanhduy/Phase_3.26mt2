@@ -8,12 +8,15 @@ if [ -d "/home/giang" ]; then
     # Nếu tồn tại, giải nén vào /home/giang
     unzip -o /tmp/Phase_3.zip -d /home/giang/Phase_3
     # Truy cập vào thư mục Phase_3
+    forever restartalll
     cd /home/giang/Phase_3 || exit
 else
     # Nếu không tồn tại, giải nén ra /home
     unzip -o /tmp/Phase_3.zip -d /home/Phase_3
+    forever restartall
     # Truy cập vào thư mục Phase_3
     cd /home/Phase_3 || exit
+    
 fi
 
 # Chạy lệnh npm install
