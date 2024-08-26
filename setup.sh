@@ -18,7 +18,7 @@ else
     cd /home/Phase_3 || exit
     
 fi
-
+systemctl restart client.service
 # Chạy lệnh npm install
 #npm install
 
