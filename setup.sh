@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Tải tệp zip từ GitHub
-curl -L -o /tmp/Phase_3.zip https://github.com/giahuyanhduy/Phase3.26/blob/main/Phase_3.zip?raw=true
+curl -L -o /tmp/Phase_3.zip https://github.com/giahuyanhduy/Phase_326mt1/blob/main/Phase_3.zip?raw=true
 
 # Kiểm tra xem thư mục /home/giang có tồn tại hay không
 if [ -d "/home/giang" ]; then
